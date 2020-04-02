@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get(
+    '/', function () {
     return view('welcome');
-});
+}
+);
+
+Route::get(
+    '/report', function () {
+    return view('report');
+}
+);
+
+Auth::routes();
+
+Route::get('/subscribe', 'CallsController@subscribe');
