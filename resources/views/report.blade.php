@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/semantic.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/main.css') }}">
+    <script src="{{ secure_asset('js/app.js') }}" defer></script>
 </head>
 <body>
 <div id="app">
     <report-component
-        fetch-url="{{ url('api/getCalls') }}"
+        fetch-url="{{ secure_url('api/getCalls') }}"
     ></report-component>
 </div>
 </body>
