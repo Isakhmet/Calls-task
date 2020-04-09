@@ -8,6 +8,7 @@ window._ = require('lodash');
 
 try {
     window.Popper = require('popper.js').default;
+    window.io = require('socket.io-client');
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CallReport;
 use App\Classes\WebhookSubscribe;
+use App\Events\OnlineEvent;
 use App\Webhook;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,8 @@ class CallsController extends Controller
                 'request'    => json_encode($data, JSON_UNESCAPED_UNICODE),
             ]
         );
+
+        event(new OnlineEvent($this->getCalls()));
     }
 
     public function subscribe()

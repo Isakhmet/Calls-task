@@ -67,12 +67,19 @@
             }
         },
         mounted() {
-            this.$on('report', 'mega');
+            //this.$on('report', 'mega');
+            var socket = io('http://127.0.0.1:3000');
+            socket.on("laravel_database_calls:App\\Events\\OnlineEvent", function(data){
+                this.fetchData();
+                alert('Hello');
+                console.log(data);
+            }.bind(this));
         },
         computed: {
 
         },
         methods:  {
+
             link:   function (value) {
                 console.log(value);
                 this.amounts = value;
